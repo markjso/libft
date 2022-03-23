@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+// this functiion will write the character string s to the file referenced by fd
 
 void	ft_putstr_fd(char *s, int fd)
 {
