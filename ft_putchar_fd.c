@@ -12,6 +12,9 @@
 
 #include "libft.h"
 
+// a file descriptor (fd) is a number that tells certain functions where to input or output information to
+// 0 is the standard input, 1 is the standard output and 2 is the standard error
+// this functiion will write the char c to the file referenced by fd
 void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
