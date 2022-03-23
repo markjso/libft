@@ -21,11 +21,16 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	size_t			i;
 
 	i = 0;
+	// i = 0 so that we start at the beginning or our string s
+	// while our i variable is less than the parameter n our loop will continue
+	// cast our void s to a char s and check if the current index postion is equal to c
+	// if true will return a pointer to the indes position that contains c
+	// if is no longer less than n return NULL
 	while (i < n)
 	{
 		if (((unsigned char *)s)[i] == (unsigned char)c)
 			return ((void *)(s + i));
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
