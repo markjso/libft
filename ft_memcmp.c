@@ -20,6 +20,9 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
+	// create two char pointers to cast void s1 and s2 to
+	// size_t i variable counts through the src and dst and we also compare it to n
+	// set i to equal 0 and cast s1 and s2 int src and dst
 	size_t			i;
 	unsigned char	*src;
 	unsigned char	*dst;
@@ -27,6 +30,9 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	i = 0;
 	src = (unsigned char *)s1;
 	dst = (unsigned char *)s2;
+	// as long as i is less than n the loop continues
+	// if i is no longer less than n and we have not found any differing bytes return a 0
+	// else return the difference between the two unsigned char casts
 	while (i < n)
 	{
 		if (dst[i] == src[i])
