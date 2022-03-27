@@ -12,6 +12,8 @@
 
 #include "libft.h"
 // this functiion will write the character string s to the file referenced by fd
+// we use the ft_strlen function to ensure that the full length of the string
+// including the null character is catered for
 
 void	ft_putstr_fd(char *s, int fd)
 {
