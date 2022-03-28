@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*
-// returns a copy of s1 with the characters in 'set' removed from the
-// beginning and the end of the string.
+// allocates memory and returns a copy of s1 with the characters in 'set' removed 
+// from the beginning and the end of the string.
 // if the allocation fails return NULL
-// the ft_setchar function holds the reference characters in se so they
+// the ft_setchar function holds the reference characters in set so they
 // can be removed.
 // */
 #include "libft.h"
