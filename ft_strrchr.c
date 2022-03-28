@@ -23,6 +23,10 @@ char	*ft_strrchr(const char *str, int c)
 	i = 0;
 	while (str[i])
 			i++;
+	// while i is greater than 0 (the end of the string) check to see if the 
+	// char c is here. If not work backwards until it is located
+	// once located, return the characters from this point forward
+	// otherwise reutn NULL
 	while (i >= 0)
 	{
 		if (str[i] == (char)c)
