@@ -44,3 +44,14 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 	}
 	return (0);
 }
+/* 
+#include <stdio.h>
+int main()
+{
+    char haystack[] = "MZIRIBMZIRIBMZE123";
+    char needle[] = "MZIRIBMZE";
+
+    printf("needle is: %s\n", needle);
+    printf("haystack is: %s\n", haystack);
+    printf("is needle in haystack: %s\n", ft_strnstr(haystack, needle, 15));
+ }*/
