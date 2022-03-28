@@ -19,15 +19,11 @@
 
 size_t	ft_strlcpy(char *restrict dst, const char *restrict src, size_t n)
 {
-	// i will count the copied string while s will hold the length of the src string
+	// i will count the characters in src
 	size_t	i;
-	size_t	s;
-
-	if (!dst || !src)
-		return (0);
-	s = ft_strlen(src);
+	
 	i = 0;
-	if (n != 0)
+	if (n > 0)
 	{
 		// while i is not at the end of src and is less than n - 1
 		// copy src to dst and count the number of characters
@@ -39,6 +35,8 @@ size_t	ft_strlcpy(char *restrict dst, const char *restrict src, size_t n)
 		// null terminate the dst string
 		dst[i] = '\0';
 	}
-	// return the length of s (src)
-	return (s);
+	while (src[i] != '\0')
+		i++;
+	// return the length of i
+	return (i);
 }
