@@ -39,3 +39,11 @@ char	*ft_strdup(const char *s1)
 	s2[len] = 0;
 	return (s2);
 }
+/*
+#include <stdio.h>
+int main(void)
+{
+char s1[20] = "Hello world!";
+char s2[20] = "";
+printf("this is the string s2: %s\n", ft_strdup(s1));
+}*/
