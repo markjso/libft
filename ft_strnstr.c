@@ -28,21 +28,29 @@ char    *ft_strnstr(const char *haystack, const char *needle, size_t len)
      size_t  n;
 
      h = 0;
+     // first check to see if needle is an empty string and if it is return haystack
      if (ft_strlen(needle) == '\0')
          return ((char *)haystack);
+     // while we are at the start of haystack initalise the first position in needle
      while (haystack[h] != '\0')
      {
          n = 0;
+        // while the index position in haystack is equal to the index position of needle and less than the length of len
+        // if haystack is equal to needle within then return a pointer to haystack from 
+        // the index point it matches at, otherwise keep imcrementing through needle
          while (haystack[h + n] == needle[n] && (h + n) < len)
          {
              if (haystack[h + n] == '\0' && needle[n] == '\0')
              return ((char*)&haystack[h]);
          n++;
          }
+      // once you are at the end of needle increment through the rest of haystack and return the rest of the
+      // haystack string    
      if (needle[n] == '\0')
          return ((char*)haystack + h);
      h++;
      }
+     // otherwise return null
      return (NULL);
  }
 /* 
