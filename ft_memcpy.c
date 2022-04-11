@@ -14,7 +14,7 @@
 */
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *restrict src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	//make three variables, i is the counter to perform the loop and move through the strings
 	//and two char pointer variables to cast our src and dst to
