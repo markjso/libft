@@ -83,7 +83,7 @@ char	**ft_split(char const *s, char c)
 	index = -1;
 	// now we go into a loop using the counter i. As long as i is less than the length of s
 	// it will continue. It first checks to see if the index position we are in is the same as our
-	// delimiter c and less that index is less than zero (index is currently -1). If it is not then 
+	// delimiter c and that index is less than zero (index is currently -1). If it is not then 
 	// continue through the index. Else, if the character is the same as c, or i is at the end of the string
 	// or index is greater than or equal to zero, then use the counter j to create a substring using 
 	// the ft_copyword function and reset index to -1. Then add a terminating 0 and return the substrings split
