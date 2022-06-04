@@ -31,7 +31,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	// if the allocation fails return NULL
 	// if not using i as the counter as long as we have not reached end of string s1 
 	// place each character of s1 into dest until it is has reached the end then go to the next loop
-	if (dest == NULL)
+	if (!dest)
 		return (NULL);
 	while (s1[i])
 	{
