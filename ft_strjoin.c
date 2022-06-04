@@ -33,7 +33,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	// place each character of s1 into dest until it is has reached the end then go to the next loop
 	if (dest == NULL)
 		return (NULL);
-	while (s1[i] != '\0')
+	while (s1[i])
 	{
 		dest[i] = s1[i];
 		i++;
@@ -41,7 +41,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	// using counter j to place each character of s2 into dest at position i + j. This means it will start at
 	// the end of the previous string and join this one to it. Once it reaches the end add a terminating '\0'
 	// and return the joined string dest
-	while (s2[j] != '\0')
+	while (s2[j])
 	{
 		dest[i + j] = s2[j];
 		j++;
