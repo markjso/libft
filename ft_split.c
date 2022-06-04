@@ -36,7 +36,7 @@ static int	ft_wordcount(const char *str, char c)
 	{
 		while (str[i] == c)
 			i++;
-		if (str[i] != '\0')
+		if (str[i])
 			wrd++;
 		while (str[i] && (str[i] != c))
 			i++;
