@@ -35,7 +35,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t n)
 		// null terminate the dst string
 		dst[i] = '\0';
 	}
-	while (src[i] != '\0')
+	while (src[i])
 		i++;
 	// return the length of i
 	return (i);
