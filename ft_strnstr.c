@@ -32,7 +32,7 @@ char    *ft_strnstr(const char *haystack, const char *needle, size_t len)
      if (ft_strlen(needle) == '\0')
          return ((char *)haystack);
      // while we are at the start of haystack initalise the first position in needle
-     while (haystack[h] != '\0')
+     while (haystack[h])
      {
          n = 0;
         // while the index position in haystack is equal to the index position of needle and less than the length of len
