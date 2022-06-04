@@ -28,11 +28,11 @@ char	*ft_strmapi(char const *s, char (*f) (unsigned int, char))
 	int		i;	
 
 	i = 0;
-	if (s)
+	if (!s)
 		return (NULL);
 	len = ft_strlen(s);
 	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (str)
+	if (!str)
 		return (NULL);
 	// if i is less than len then apply the function f to each of the charcters of f
 	// and set the result into the coressponding postion in the new string str
