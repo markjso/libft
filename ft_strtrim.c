@@ -56,7 +56,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 			finish--;
 	s2 = (char *)malloc(sizeof(*s1) * (finish - start + 1));
 	// if the allocation fails return NULL
-	if (s2 == NULL)
+	if (!s2)
 		return (NULL);
 		i = 0;
 	// while the count of start is less than the count of finish
