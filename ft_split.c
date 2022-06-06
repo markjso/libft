@@ -20,11 +20,8 @@ static int	ft_wordcount(const char *str, char c)
 	// first we create a function to count how many words are in the string
 	// this is so we can allocate enough memory for the return sub strings
 	// declare i to move through the string and wrd to count the workds
-	unsigned int	i;
-	int				wrd;
-
-	i = 0;
-	wrd = 0;
+	size_t	count:
+	
 	// loop continues so long as we have not reached the end of the string
 	// inside the loop is another loop that continues if the index postion we are in
 	// is the same as our delimiter c. If the end of the string is not reached after passing
@@ -32,73 +29,58 @@ static int	ft_wordcount(const char *str, char c)
 	// over all the characters until we find another instance of the character c
 	// the loop will start again if the end of the string has not been reached
 	// once it has it returns the number of words and how many sub strings we need
-	while (str[i])
+	if (!*str)
+		return (0);
+	count = 0;
+	while(*str)
 	{
-		while (str[i] == c)
-			i++;
-		if (str[i])
-			wrd++;
-		while (str[i] && (str[i] != c))
-			i++;
+		while (*str == c)
+			str++;
+		if (*str)
+			count++;
+		while (*str != c && *str)
+			str++;
 	}
-	return (wrd);
+	return (count);
 }
-
-static char	*ft_copyword(char const *s, int start, int finish)
-{
-	// this function creates a copy to a pointer of each word or substring 
-	// of s and allocates enough memory for each one by using the 
-	// parameters start and finish. We add 1 to this in the malloc
-	// function to ensure space for the terminating '\0' charachter
-	// we copy this into a substring called word and use i to continue through
-	// the index while start is less than finish. When this condition is no longer
-	// met we null terminate and return word
-	char	*word;
-	int		i;
-
-	i = 0;
-	word = (char *)malloc(sizeof(char) * (finish - start + 1));
-	while (start < finish)
-		word[i++] = s[start++];
-	word[i] = '\0';
-	return (word);
-}	
 
 char	**ft_split(char const *s, char c)
 {
-	// now we do the ft_split function. We have three counters to pinpont index postions in
+	// now we do the ft_split function. We have two counters to pinpont index postions in
 	// the parameter string s. We also have a char pointer split to return our substrings.
 	// we allocate memory for the substrings based on the ft_wordcount function plus 1 for the
 	// terminating '\0'. 
-	size_t	i;
-	int		j;
-	int		index;
+	int	i;
+	size_t	word_len;
 	char	**split;
 
-	if (!s)
-		return (NULL);
 	split = (char **)malloc(sizeof(char *) * (ft_wordcount(s, c)) + 1);
+	if (!s || !split)
+		return (0);
 	i = 0;
-	j = 0;
-	index = -1;
-	// now we go into a loop using the counter i. As long as i is less than the length of s
-	// it will continue. It first checks to see if the index position we are in is the same as our
-	// delimiter c and that index is less than zero (index is currently -1). If it is not then 
-	// continue through the index. Else, if the character is the same as c, or i is at the end of the string
-	// or index is greater than or equal to zero, then use the counter j to create a substring using 
-	// the ft_copyword function and reset index to -1. Then add a terminating 0 and return the substrings split
-	while (i <= ft_strlen(s))
+	// now we go into a loop. As long as it is not the terminating null
+	// it will continue to the next while loop. It first checks to see if the index position 
+	// we are in is the same as our delimiter c and that s is not at the terminating null. If 
+	// it is the terminating null then check if the string contains the delimiter using ft_strchr.
+	// If it does not then word_len is equal to the length of s. Otherwise word_len uses ft_strchr
+	// to create a substring from the point of the delimiter onwards. Split then uses ft_substr
+	// to return the new strings starting from the position of i = 0 and using the length  
+	// returned by ft_strlen. Then add a terminating 0 and return the substrings split.
+	while (*s)
 	{
-		if (s[i] != c && index < 0)
-			index = i;
-		else if ((s[i] == c || i == ft_strlen(s)) && index >= 0)
+		while (*s == c && *s)
+			s++;
+		if (*s)
 		{
-			split[j++] = ft_copyword(s, index, i);
-			index = -1;
+			if (!ft_strchr(s, c))
+				word_len = ft_strlen(s);
+			else
+				word_len = ft_strchr(s, c) - s;
+			split[i++] = ft_substr(s, 0, word_len);
+			s += word_len;
 		}
-		i++;
 	}
-	split[j] = 0;
+	split[i] = NULL;
 	return (split);
 }
 /*
