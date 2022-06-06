@@ -18,34 +18,27 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	// declare a char pointer str to hold our substring
-	// unsigned int i and j will act as counters and will start at zero
+	// size_t i and j will act as counters
 	// allocate the memory for the new string to be len plus 1 for the 
 	// terminating '\0'
-	char			*str;
-	unsigned int	i;
-	unsigned int	j;
-
-	i = 0;
-	j = 0;
-	str = (char *)malloc(sizeof(*s) * (len + 1));
-	// if the allocation fails return NULL
-	if (!str)
-		return (NULL);
+	char	*sub_str;
+	size_t	i;
+	size_t	j;
 	
-	// until we reach the end of string s, if i is greater than start and j is less 
-	// than len copy the number of characters of len from string s at position
-	// start into string str. Terminate the substring str with '\0' and return the substring str
-	while (s[i])
-	{
-		if (i >= start && j < len)
-		{
-		str[j] = s[i];
-		j++;
-		}
-		i++;
-	}
-	str[j] = '\0';
-	return (str);
+	sub_str = (char *)malloc(len + 1);
+	// if the allocation fails return NULL
+	if (!s || !sub_str)
+		return (0);
+	i = start;
+	j = 0;
+		
+	// while i (start) is less then the length of s AND j is less than len
+	// then our sub string starts at the position in the value of start and continues
+	// through until the value of len is reached. Terminate the substring str with '\0' and return the sub_str.
+	while (i < ft_strlen(s) && j < len)
+		sub_str[j++] = s[i++];
+	sub_str[j] = '\0';
+	return (sub_str);
 }
 /*
 #include <stdio.h>
