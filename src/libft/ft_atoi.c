@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 /*
 ** Converts ASCII str to an integer (type int). Need to include a 
-** condition for max and min int length.
+** condition for max and min int length. 
 */
 #include "libft.h"
 
