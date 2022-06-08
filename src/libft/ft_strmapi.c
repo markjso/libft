@@ -31,7 +31,7 @@ char	*ft_strmapi(char const *s, char (*f) (unsigned int, char))
 	if (!s)
 		return (NULL);
 	len = ft_strlen(s);
-	str = (char *)malloc(sizeof(char) * (len + 1));
+	str = malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
 	// if i is less than len then apply the function f to each of the charcters of f
