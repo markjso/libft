@@ -54,7 +54,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	// minus the set characters at the start of the string s1 plus 1 for the terminating '\0'
 	while (finish > start && ft_setchar(s1[finish - 1], set))
 			finish--;
-	s2 = (char *)malloc(sizeof(*s1) * (finish - start + 1));
+	s2 = malloc(sizeof(*s1) * (finish - start + 1));
 	// if the allocation fails return NULL
 	if (!s2)
 		return (NULL);
