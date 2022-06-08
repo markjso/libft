@@ -54,7 +54,7 @@ char	**ft_split(char const *s, char c)
 	size_t	word_len;
 	char	**split;
 
-	split = (char **)malloc(sizeof(char *) * (ft_wordcount(s, c)) + 1);
+	split = malloc(sizeof(char *) * (ft_wordcount(s, c)) + 1);
 	if (!s || !split)
 		return (0);
 	i = 0;
