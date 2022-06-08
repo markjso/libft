@@ -19,7 +19,7 @@
  * which then uses the appropriate function to print the characters. 
  * Second if is used if the character is not a format specifier and uses 
  * ft_printf_char to print the string and keeps a running total of 
- * charachters printed using count.*/ 
+ * charachters printed using count.*/
 
 int	ft_printf(const char *format, ...)
 {
