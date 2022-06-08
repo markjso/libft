@@ -16,7 +16,7 @@
 # include <stdarg.h>
 # include "libft.h"
 
-int		ft_printf_char(char c);
+int		ft_printf_char(char c); 
 int		ft_printf_str(char *s);
 int		ft_printf_number(int num);
 int		ft_printf_hex(size_t num, char *base);
