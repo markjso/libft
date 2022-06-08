@@ -27,7 +27,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
-	dest = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	dest = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	// if the allocation fails return NULL
 	// if not using i as the counter as long as we have not reached end of string s1 
 	// place each character of s1 into dest until it is has reached the end then go to the next loop
