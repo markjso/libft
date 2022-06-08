@@ -25,7 +25,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	size_t	j;
 	
-	sub_str = (char *)malloc(len + 1);
+	sub_str = malloc(len + 1);
 	// if the allocation fails return NULL
 	if (!s || !sub_str)
 		return (0);
