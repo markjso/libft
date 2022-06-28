@@ -48,12 +48,9 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 #include <stdio.h>
 
 int main () {
-   char str1[15];
-   char str2[15];
+   char str1[10] = "abcdef";
+   char str2[10] = "ABCDEF";
    int ret;
-
-   memcpy(str1, "abcdef", 6);
-   memcpy(str2, "ABCDEF", 6);
 
    ret = ft_memcmp(str1, str2, 5);
 
