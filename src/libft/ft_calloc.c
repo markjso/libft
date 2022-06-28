@@ -10,9 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*
-** Allocates the requested memory and returns a pointer to it.
-** Sets the allocated memory to zero using the ft_bzero function. 
-** Returns NULL if the request fails.
+* The calloc() function is used to allocate a specified amount of memory and then initialize it to zero. 
+* The function returns a void pointer to this memory location, which can then be cast to the desired type. 
+* The function takes in two parameters that collectively specify the amount of memory to be allocated.
+* Sets the allocated memory to zero using the ft_bzero function.
+* Returns NULL if the request fails.
 */
 
 #include "libft.h"
@@ -24,8 +26,8 @@ void	*ft_calloc(size_t count, size_t size)
 
 	// allocte memory based on the count multipled by size variables in our parameter
 	// if the memory allocation fails return NULL.
-	// otherwise run bzero function on the allocated zone of memory ptr and give it our size times count parameter
-	// return the void variable ptr
+	// otherwise use our bzero function to initialize the allocated memory to zero, passing in two functions
+	// return the void pointer (ptr).
 	ptr = malloc(size * count);
 	if (ptr == NULL)
 		return (0);
