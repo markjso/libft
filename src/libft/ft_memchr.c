@@ -41,7 +41,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 **    const char ch = '.';
 **    char *result;
 **
-**    result = memchr(s, ch, 11);
+**    result = ft_memchr(s, ch, 11);
 **
 **    printf("String after character is %s\n", result);
 **
