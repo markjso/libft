@@ -40,8 +40,8 @@ static int	ft_digitsize(int num)
 
 char	*ft_itoa(int n)
 {
-	// create a char string variable called str that will be returned
-	// use unsigned int of num to cut n into digits so that a char can be created with each of them
+	// create a char pointer variable called str that will be returned
+	// use unsigned int of num to cut n into single digits so that a char can be created with each of them
 	// use unsigned int of len that will use the ft_digitsize function to work out the length of n
 	char			*str;
 	unsigned int	num;
@@ -69,7 +69,7 @@ char	*ft_itoa(int n)
 		str[len] = '\0';
 	// if it's not zero then end of the string str (len - 1) is num % 10 + '0' which adds the ascii value of the char '0' (48)
 	//  so we can get a char array. num /10 removes the last digit as we got this from num % 10
-	// then decrement the loop until we reach zero and return the string str.
+	// then decrement the loop until we reach zero and return the pointer str.
 	while (num != 0)
 	{
 		str[len - 1] = (num % 10) + '0';
