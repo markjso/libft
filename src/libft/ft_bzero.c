@@ -20,12 +20,13 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	// start by creating a char string of str to cast void s to
+	// start by creating a char pointer (str) to cast void *s to
 	char	*str;
 
 	str = (char *)s;
-	// while n is greater than zero write zero to str
-	// we decrement n and loop again until it is no longer greater than 0
+	// while n is greater than zero write '\0' to str and increment the array
+	// decrement n and loop again until it is no longer greater than 0
+	// we don't return anything as it is a void function
 	while (n > 0)
 	{
 		*str = '\0';
