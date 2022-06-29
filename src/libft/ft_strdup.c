@@ -43,7 +43,7 @@ char	*ft_strdup(const char *s1)
 #include <stdio.h>
 int main(void)
 {
-char s1[20] = "Hello world!";
-char s2[20] = "";
+char s1[15] = "Hello world!";
+char s2[15] = "";
 printf("this is the string s2: %s\n", ft_strdup(s1));
 }*/
