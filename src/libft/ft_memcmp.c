@@ -14,6 +14,8 @@
 ** The memcmp function compares the first n bytes of memory area 
 ** in s1 against s2. Returns 0 if they are equal.
 ** Otherwise returns the difference between the first two differing bytes.
+** < 0 means s1 is less than s2.
+** > 0 means s2 is less than s1.
 */
 
 #include "libft.h"
@@ -21,8 +23,8 @@
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	// create two char pointers to cast void s1 and s2 to
-	// size_t i variable counts through the src and dst and we also compare it to n
-	// set i to equal 0 and cast s1 and s2 int src and dst
+	// size_t i variable increments through the cast pointers src and dst and we also compare it to n
+	// set i to equal 0 and cast s1 and s2 to src and dst
 	size_t			i;
 	unsigned char	*src;
 	unsigned char	*dst;
@@ -30,10 +32,12 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	i = 0;
 	src = (unsigned char *)s1;
 	dst = (unsigned char *)s2;
-	// as long as i is less than n the loop continues
+	// while i is less than n enter the loop
+	// compare dst to src (which is really s2 to s1)
+	// if they are the same increment through
 	// if i is no longer less than n and we have not found any differing bytes return a 0
-	// else return the difference between the two unsigned char casts
-	while (i < n)
+	// else return the ascii difference between the two unsigned char casts src and dst
+ 	while (i < n)
 	{
 		if (dst[i] == src[i])
 		{
