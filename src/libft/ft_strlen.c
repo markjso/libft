@@ -20,9 +20,22 @@ size_t	ft_strlen(const char *str)
 	size_t	i;
 
 	i = 0;
+	// while str is not null, increment through the string
+	// (i + 1 each time)
+	// return the value of i (the length of the string)
 	while (str[i])
 	{
 		i++;
 	}
 	return (i);
 }
+/*
+int main () {
+   char str[] = "this is a string";
+   int len;
+
+   len = ft_strlen(str);
+   printf("Length of %s is: %d\n", str, len);
+   
+   return(0);
+}*/
