@@ -15,7 +15,9 @@
 ** does the copy and returns a pointer to it.
 ** the original string is fetched and then the malloc function allocates
 ** space for the duplicate + one character.
-** if the allocation fails return NULL
+** if the memory allocation fails return NULL
+** otherwise while len < x (the length of the string)
+** the loop continues and the array of s1 is copied to s2
 */
 
 #include "libft.h"
@@ -43,7 +45,7 @@ char	*ft_strdup(const char *s1)
 #include <stdio.h>
 int main(void)
 {
-char s1[15] = "Hello world!";
-char s2[15] = "";
-printf("this is the string s2: %s\n", ft_strdup(s1));
+char s1[] = "Hello world!";
+printf("this is the original string: %s\n", s1);
+printf("this is the copied string s2: %s\n", ft_strdup(s1));
 }*/
