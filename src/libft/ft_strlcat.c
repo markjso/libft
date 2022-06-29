@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*
-** Copy and concatenate src to the end of dst. It will append at most 
-** n - strlen(dst) - 1 characters. Attempts to return the 
-** total length of the dst plus the total length of the src string.
-** If src and dst overlap the behaviour is undefined
+** appends no more than n−strlen(src)−1 characters pointed to by src
+** into the array pointed to by dst and always terminates the result with a null
+** character if n is greater than zero. Both the strings src and dst
+** must be terminated with a null character on entry to strlcat
+** and a byte for the terminating null should be included in n.
 */
 #include "libft.h"
 
@@ -26,20 +27,20 @@ size_t	ft_strlcat(char *dst, const char *src, size_t n)
 	j = 0;
 	// initialise counters i & j and set them to zero so they start at the
 	// beginning of each string. While we are not at the end of dst and i
-	// is less than n then increment through and count the characters
+	// is less than n then increment through dst
 	while (dst[i] && i < n)
 		i++;
-	// while we are not at the end of src and then index of i + j + 1 is still
-	// less than n then continue to concatenate src to dst and count the number of
-	// characters
+	// while we are not at the end of src and the index of i + j + 1 is still
+	// less than n then append the first character of src to dst and increment j
+	// by 1. continue to loop until it breaks
 	while (src[j] && (i + j + 1) < n)
 	{
 		dst[i + j] = src[j];
 		j++;
 	}
-	// once we have reached the number of characters of n, null terminate the string
-	// return the number of charcters of dst plus src before it was terminated
-	if (i != n)
+	// now if i is less than n terminate dst and add the null to the end of the appended string
+	// return the number of charcters of dst plus the appended length of src
+	if (i < n)
 		dst[i + j] = '\0';
 	return (i + ft_strlen(src));
 }
@@ -47,9 +48,9 @@ size_t	ft_strlcat(char *dst, const char *src, size_t n)
 #include <stdio.h>
 int main()
 {
-char src[] = "this is";
-char dst[] = "a new string";
+char src[] = "world";
+char dst[] = "hello";
 printf("src string is: %s/n", src);
 printf("dst string is: %s/n", dst);
-printf("new string is: %zu/n", ft_strlcat(dst, src, 10));
+printf("new string is: %zu/n", ft_strlcat(dst, src, 5));
 }*/
