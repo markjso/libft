@@ -44,7 +44,7 @@ int main () {
 
    ret = ft_strchr(str, ch);
    printf("String is = %s\n", str);
-   printf("charcter is = %s\n", ch);
+   printf("charcter is = %c\n", ch);
    printf("String after %c is = %s\n", ch, ret);
    
    return(0);
