@@ -32,36 +32,41 @@ char    *ft_strnstr(const char *haystack, const char *needle, size_t len)
      // if it is return a cast char of haystack
      if (ft_strlen(needle) == '\0')
          return ((char *)haystack);
-     // if not while we are at the start of haystack initalise n to 0
+     // if not while haystack is not nul initalise n to 0
      while (haystack[h])
      {
          n = 0;
-        // while the index position in haystack is equal to the index position of needle and less than the length of len
-        // check if you are at the terminating null of haystack and needle and return a pointer to haystack from 
-        // the index point it matches at, otherwise keep imcrementing n until you reach the end of the loop
+        // as long as h + n is less than the length of len the first index position in haystack is 
+        // compared to the first index position of needle. If they are the same increment n  
+        // if they are different then increment h to compare to the next position     
          while (haystack[h + n] == needle[n] && (h + n) < len)
          {
-             if (haystack[h + n] == '\0' && needle[n] == '\0')
+              // check if you are at the terminating null of haystack and needle and if you are return a char pointer 
+              // to the address of haystack, otherwise keep imcrementing n until you reach the end of the loop
+              if (haystack[h + n] == '\0' && needle[n] == '\0')
              return ((char*)&haystack[h]);
          n++;
          }
       // once you are at the end of needle increment h and go through the while loop
       // again incrementing h until you are at the end of haystack
      if (needle[n] == '\0')
+         // if you are at the terminating null of needle
+         // return the pointer char of haystack (which is now needle) and append the
+         // remainder to it
          return ((char*)haystack + h);
      h++;
      }
-     // otherwise return null
+     // otherwise if needle is not contained in haystack return null
      return (NULL);
  }
 /* 
 #include <stdio.h>
 int main()
 {
-    char haystack[] = "MZIRIBMZIRIBMZE123";
-    char needle[] = "MZIRIBMZE";
+    char haystack[] = "hayneedlestack";
+    char needle[] = "needle";
 
     printf("needle is: %s\n", needle);
     printf("haystack is: %s\n", haystack);
-    printf("is needle in haystack: %s\n", ft_strnstr(haystack, needle, 15));
+    printf("is needle in haystack: %s\n", ft_strnstr(haystack, needle, 10));
  }*/
