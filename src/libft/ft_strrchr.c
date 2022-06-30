@@ -34,5 +34,18 @@ char	*ft_strrchr(const char *str, int c)
 			return ((char *)(str + i));
 		i--;
 	}
+/*	
+int main () {
+   int len;
+   char str[] = "today. tonight. always";
+   const char ch = '.';
+   char *ret;
+   
+   ret = ft_strrchr(str, ch);
+
+   printf("String is = %s\n", str);
+   printf("character is = %c\n", ch);
+   printf("String after last %c is = %s\n", ch, ret);
+}*/
 	return (NULL);
 }
