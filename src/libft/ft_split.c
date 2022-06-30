@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-// in this function a string is cut into an array or substrings from a delimiter character c
-// the array's are returned on separate lines and start from the first character 
+// in this function a string is cut into smaller arrays or substrings from a delimiter character c
+// the arrays are returned on separate lines and start from the first character 
 // before and after the delimiter
 
 static int	ft_wordcount(const char *str, char c)
@@ -46,8 +46,8 @@ static int	ft_wordcount(const char *str, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	// now we do the ft_split function. We have two counters to pinpont index postions in
-	// the parameter string s. We also have a char pointer split to return our substrings.
+	// We have two counters to pinpont index postions in the parameter string s.
+	// We also have a char pointer to a pointer, split to return our substrings.
 	// we allocate memory for the substrings based on the ft_wordcount function plus 1 for the
 	// terminating '\0'. 
 	int	i;
@@ -55,32 +55,35 @@ char	**ft_split(char const *s, char c)
 	char	**split;
 
 	split = malloc(sizeof(char *) * (ft_wordcount(s, c)) + 1);
+	// if the memory allocation fails return 0
 	if (!s || !split)
 		return (0);
 	i = 0;
-	// now we go into a loop. As long as it is not the terminating null
-	// it will continue to the next while loop. It first checks to see if the index position 
-	// we are in is the same as our delimiter c and that s is not at the terminating null. If 
-	// it is the terminating null then check if the string contains the delimiter using ft_strchr.
-	// If it does not then word_len is equal to the length of s. Otherwise word_len uses ft_strchr
-	// to create a substring from the point of the delimiter onwards. Split then uses ft_substr
-	// to return the new strings starting from the position of i = 0 and using the length  
-	// returned by ft_strlen. Then add a terminating 0 and return the substrings split.
+	// now we go into a loop. As long as s is not null it will continue to the next while loop.
+	// First check to see if the index position we are in is the same as our delimiter c 
+	// if it is not increment s
 	while (*s)
 	{
 		while (*s == c && *s)
 			s++;
+		// if it is the terminating null 
 		if (*s)
+		// then check if the string contains the delimiter using ft_strchr.
+		// if it does than set word_len to equal the length of s	
 		{
 			if (!ft_strchr(s, c))
 				word_len = ft_strlen(s);
+		//else word_len equals the length of ft_strchr - the length of s
+		// split equals the new substring starting from the position of i
+		// s equals word_len plus s	
 			else
 				word_len = ft_strchr(s, c) - s;
 			split[i++] = ft_substr(s, 0, word_len);
 			s += word_len;
 		}
 	}
-	split[i] = NULL;
+	// add the terminating null and return split
+	split[i] = '\0';
 	return (split);
 }
 /*
