@@ -21,11 +21,12 @@ char	*ft_strrchr(const char *str, int c)
 	int	i;
 
 	i = 0;
+	// while we are not at the end of the string increment i
 	while (str[i])
 			i++;
-	// while i is greater than 0 (the end of the string) check to see if the 
-	// char c is here. If not work backwards until it is located
-	// once located, return the characters from this point forward
+	// while i is not negative
+	// check if cast char c is here. If not decrement i until c is located
+	// once located, return the array of str from the location of i onwards
 	// otherwise reutn NULL
 	while (i >= 0)
 	{
