@@ -17,7 +17,7 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	// declare a char pointer str to hold our substring
+	// initialise a char pointer sub_str to hold our substring
 	// size_t i and j will act as counters
 	// allocate the memory for the new string to be len plus 1 for the 
 	// terminating '\0'
@@ -29,12 +29,14 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	// if the allocation fails return NULL
 	if (!s || !sub_str)
 		return (0);
+	// i will be the value of start
 	i = start;
 	j = 0;
 		
 	// while i (start) is less then the length of s AND j is less than len
-	// then our sub string starts at the position in the value of start and continues
-	// through until the value of len is reached. Terminate the substring str with '\0' and return the sub_str.
+	// then our sub string starts at the position in the value of start
+	// j and i are incremented until len is reached and the loop is broken
+	// terminate the substring str with '\0' and return the sub_str.
 	while (i < ft_strlen(s) && j < len)
 		sub_str[j++] = s[i++];
 	sub_str[j] = '\0';
@@ -42,10 +44,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 }
 /*
 #include <stdio.h>
- 40 int main()
- 41 {
- 42     char s[] = "substr function Implementation";
- 43
- 44     printf("string s is: %s\n", s);
- 45     printf("substring is: %s\n", ft_substr(s, 5, 10));
- 46 }*/
+int main()
+{
+    char s[] = "substr function Implementation";
+
+     printf("string s is: %s\n", s);
+     printf("substring is: %s\n", ft_substr(s, 5, 10));
+}*/
