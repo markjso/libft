@@ -43,8 +43,9 @@ int main () {
    char *ret;
 
    ret = ft_strchr(str, ch);
-
-   printf("String after |%c| is = %s\n", ch, ret);
+   printf("String is = %s\n", str);
+   printf("charcter is = %s\n", ch);
+   printf("String after %c is = %s\n", ch, ret);
    
    return(0);
 }*/
