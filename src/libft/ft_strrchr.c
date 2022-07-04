@@ -34,6 +34,8 @@ char	*ft_strrchr(const char *str, int c)
 			return ((char *)(str + i));
 		i--;
 	}
+		return (NULL);
+}
 /*	
 int main () {
    int len;
@@ -47,5 +49,4 @@ int main () {
    printf("character is = %c\n", ch);
    printf("String after last %c is = %s\n", ch, ret);
 }*/
-	return (NULL);
-}
+
