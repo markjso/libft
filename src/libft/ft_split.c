@@ -20,7 +20,7 @@ static int	ft_wordcount(const char *str, char c)
 	// first we create a function to count how many words are in the string
 	// this is so we can allocate enough memory for the return sub strings
 	// declare i to move through the string and wrd to count the workds
-	size_t	count:
+	size_t	count;
 	
 	// loop continues so long as we have not reached the end of the string
 	// inside the loop is another loop that continues if the index postion we are in
