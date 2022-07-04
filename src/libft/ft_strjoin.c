@@ -27,26 +27,40 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	dest = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	// if the allocation fails return NULL
-	// if not using i as the counter as long as we have not reached end of string s1 
-	// place each character of s1 into dest until it is has reached the end then go to the next loop
 	if (!s1 || !s2 ||!dest)
 		return (NULL);
 	i = 0;
 	j = 0;
+	// while we are not at the terminating null of s1 copy each character of s1
+	// into dest and increment i unitl you reach the end of s1 and break the loop
 	while (s1[i])
 	{
 		dest[i] = s1[i];
 		i++;
 	}
-	// using counter j to place each character of s2 into dest at position i. This means it will start at
-	// the end of the previous string and join this one to it. Once it reaches the end add a terminating '\0'
-	// and return the joined string dest.
+	// while we are not at the terminating null of s2 copy each character of s2 into dest at position i. 
+	// This means it will start at the end of the previous string and join this one to it. 
+	// increment both i and j until you reach the end of s2 and break the loop
 	while (s2[j])
 	{
 		dest[i] = s2[j];
 		i++;
 		j++;
 	}
+	// Once it reaches the end add a terminating '\0' to dest
+	// and return the joined string dest.
 	dest[i] = '\0';
 	return (dest);
 }
+/*
+int main() {
+  char init[] = "this is init";
+  char add[] = " added now";
+  char *ret;
+   
+   ret = ft_strjoin(init, add);
+
+   printf("String1 is = %s\n", init);
+   printf("string2 is = %s\n", add);
+   printf("String after join is = %s\n", ret);
+}*/
