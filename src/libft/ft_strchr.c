@@ -22,7 +22,7 @@ char	*ft_strchr(const char *str, int c)
 	// while *str is not null the loop continues
 	// if the variable in int c is found in *str
 	// if int c is not found and it is not the end of str
-	// increment str. when int c is found in str return str from this point on. 
+	// increment str. When int c is found in str return str from this point on. 
 	while(*str)
 	{
 		if (*str == (char) c)
@@ -31,8 +31,8 @@ char	*ft_strchr(const char *str, int c)
 	}
 	// if you reach the end of the string and the variable in int c
 	// is found then return str from this point on
-	// otherwise if int c is not found return null
-	if (*str == (char) c)
+	// otherwise if int c is null return the char str.
+	if (c == '\0')
 		return ((char *)str);
 	return (NULL);
 }
