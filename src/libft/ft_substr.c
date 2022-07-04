@@ -12,7 +12,7 @@
 
 #include "libft.h"
 // allocates memory and returns a new copy of a portion of the string s
-// this substring begins at start and will have the lenth of len
+// this substring begins at start and will have the length of len
 // if the memory allocation fails return NULL
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -25,20 +25,27 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	size_t	j;
 	
-	sub_str = malloc(len + 1);
+	sub_str = malloc(sizeof(*s) * (len + 1));
 	// if the allocation fails return NULL
-	if (!s || !sub_str)
-		return (0);
-	// i will be the value of start
-	i = start;
+	if (!sub_str)
+		return (NULL);
+	i = 0;
 	j = 0;
-		
-	// while i (start) is less then the length of s AND j is less than len
-	// then our sub string starts at the position in the value of start
-	// j and i are incremented until len is reached and the loop is broken
+	// while s (with the value of i) is not null the loop keeps going
+	// if i is greater than or equal to the length of start AND j is less than len
+	// then our sub string is copied from string starting at the position in i
+	// j is incremented until it is the same value as len and the loop is broken
+	// otherwise i is incremented and the loop is entered again until i is >= to start
 	// terminate the substring str with '\0' and return the sub_str.
-	while (i < ft_strlen(s) && j < len)
-		sub_str[j++] = s[i++];
+	while (s[i])
+	{
+		if (i >= start && j < len)
+		{
+		sub_str[j] = s[i];
+		j++;
+		}
+	i++;
+	}
 	sub_str[j] = '\0';
 	return (sub_str);
 }
