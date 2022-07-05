@@ -88,7 +88,7 @@ char	**ft_split(char const *s, char c)
 	}
 	// one the end of the original string is reached 
 	// add the terminating null to the first pointer and return the split string
-	split[i] = '\0';
+	split[i] = NULL;
 	return (split);
 }
 /*
