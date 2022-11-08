@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*
-** Converts ASCII str to an integer (type int). Need to include a 
-** condition for max and min int length. 
+** Converts ASCII str to an integer (type int). If no valid conversion can be 
+** perfomred return 0.
 */
 #include "libft.h"
 
