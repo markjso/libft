@@ -82,7 +82,7 @@ char	*ft_itoa(int n)
 #include <stdio.h>
 int main()
 {
-	char str[]  = '-1567';
-	printf("value of string  is: %d\n", str);
+	int n  = -1567;
+	printf("value of string  is: %d\n", n);
 	printf("value with itoa is: %s\n", ft_itoa(n));
 }*/
