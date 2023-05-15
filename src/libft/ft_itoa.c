@@ -17,66 +17,41 @@
 */
 #include "libft.h"
 
-// first we work out how long our int is. This is so we can allocate the correct amount of memory.
-// we want the smallest size possible so we convert the int numb into a one digit number
-static int	ft_digitsize(int num)
+char	*ft_itoa(int nbr)
 {
-		unsigned int	count;
-
-	if (num == 0)
-		return (1);
-	count = 0;
-	// if it's a negative number, make it positive
-	if (num < 0)
-		count = count + 1;
-	// if it's not zero, then divide it by 10 and loop through again until num is a single digit
-	while (num != 0)
-	{
-		num = num / 10;
-		count++;
-	}
-	return (count);
-}
-
-char	*ft_itoa(int n)
-{
-	// create a char pointer variable called str that will be returned
-	// use unsigned int of num to cut integer into single digits so that a char can be created with each of them
-	// use unsigned int of len that will use the ft_digitsize function to work out the length of n
-	char			*str;
-	unsigned int	num;
-	unsigned int	len;
-
-	len = ft_digitsize(n);
-	// allocate memory based on the size of len plus one for the null terminated character 
-	// if the allocation fails return NULL
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (str == NULL)
-		return (NULL);
-	// if n is less than zero (negative) turn it into a positive
-	// num is now intillised as -n to make it positive (minus minus = plus)
-	if (n < 0)
-	{
-		str[0] = '-';
-		num = -n;
-	}
-	// else num is positive
-	else
-		num = n;
-	// if num (or n) is zero make it character '0' 
-	if (num == 0)
-		str[0] = '0';
-		str[len] = '\0'; //add the terminating null to the array
-	// if it's not zero then end of the string str (len - 1) is num % 10 + '0' which adds the ascii value of the char '0' (48)
-	//  so we can get a char array. num /10 removes the last digit as we got this from num % 10
-	// then decrement len and continue the loop until we reach zero and return the char pointer str.
-	while (num != 0)
-	{
-		str[len - 1] = (num % 10) + '0';
-		num = num / 10;
-		len--;
-	}
-	return (str);
+    int n;
+    char *res;
+    int len;
+	
+    n = nbr;
+    len = 0;	
+    if (nbr <= 0) // caters for if nbr is negative, will increment len to 1
+    {
+        len++;
+    }
+    while (n) // get the length of n to malloc res
+    {
+        n = n / 10;
+        len++;
+    }
+    res = malloc(sizeof(char) * (len + 1));
+    res[len] = '\0'; // adds the terminating null to result
+    if (nbr == 0)
+    {
+        res[0] = '0'; // this will print 0
+        return (res);
+    }
+    if (nbr < 0)
+    {
+        res[0] = '-'; // this will print the negative sign
+        nbr = -nbr; // this will turn nbr to positive
+    }
+    while (nbr)
+    {
+        res[--len] = nbr % 10 + '0'; // decrement length and return result working backwards (modulus 10)
+        nbr = nbr / 10; // reduce nbr by one on each decrementation
+    }
+    return (res);
 }
 /*
 #include <stdio.h>
